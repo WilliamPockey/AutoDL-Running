@@ -1,10 +1,13 @@
 # AutoDL-Running
 本博客介绍了AutoDL的使用方法和使用时遇到的一些问题
+
 ​
 前言
+
 在深度学习项目中，为应对个人电脑算力不足，我们可以选择租用云平台显卡进行模型训练等工作。本文章主要记录云平台AutoDL使用方法与实战项目遇到的问题。
 
 AutoDL平台显卡租用流程
+
 在平台登录后，先充值一定数额，然后进入算力市场
 
 ![image](https://github.com/user-attachments/assets/7868c879-77d0-487a-b72e-cd9112a3236a)
@@ -42,16 +45,18 @@ AutoDL平台显卡租用流程
 
 
 AutoDL解决conda install卡在collecting package meta或solving envieonments
+
 使用conda install卡在collecting package meta或solving envieonments是因为conda版本较老，需要更新conda版本，并且建议替换成mamba从而加速包下载
 
 方法：在控制台中输入conda update -n base conda 更新conda到最新版本。然后执行：conda update --all 。然后下载mamba替换conda：conda install mamba -n base -c conda-forge
 之后的conda命令都用mamba进行替换即可。
 
 给AutoDL服务器设置代理
+
 AutoDL在下载外网的包时非常卡顿。如果需要下载github或者huggingface的资源。可使用官方的学术加速。方法：控制台输入source /etc/network_turbo
 如果需要取消则输入unset http_proxy && unset https_proxy
 
-但如果需要下载其他网站资源，请首先自备代理软件
+但如果需要下载其他网站资源，请首先自备代理软件Clash。本处参考：https://github.com/VocabVictor/clash-for-AutoDL?tab=readme-ov-file
 
 方法：1.在控制台输入git clone https://github.com/VocabVictor/clash-for-AutoDL.git
 
@@ -60,6 +65,7 @@ cp .env.example .env
 vim .env(使用vi编辑器修改文件)
 
 3.进入你使用的代理网站，找到订阅链接并复制
+![image](https://github.com/user-attachments/assets/62d135f1-398c-402e-b08d-2a5943e46ab8)
 
 4.(此处是为不懂vi编辑器的方便操作)点击(或方向键移动至)第二行的CLASH_URL右侧第一个引号，然后黏贴，使你复制的连接位于两个引号之间，然后键盘输入:wq退出即可
 ![image](https://github.com/user-attachments/assets/accb1ab2-6f0a-4077-83a9-01b8fafe75fc)
@@ -103,11 +109,13 @@ sudo apt-get install gettext
 原因:隔壁gpu.pro出现envsubst: command not found的解决方法 · Issue #37 · VocabVictor/clash-for-AutoDL
 
 (个人向)运行时报错"undefined symbol: iJIT_NotifyEvent"解决方法
+
 原因：mkl包太新，而pytorch是基于老版本mkl写的
 
 方法：mamba install mkl=2024.0
 
 (个人向)解决torch-geometric报错的问题
+
 1.报错"torch_geometric AttributeError: 'builtin_function_or_method' object has no attribute 'default'"
 
 原因：torch-geometric版本太高
