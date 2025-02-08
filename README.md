@@ -34,6 +34,7 @@ AutoDL平台显卡租用流程
 
 
 点击文件夹上的上传按钮可将项目上传至AutoDL服务器，点击右侧页面的cmd可进入控制台
+另外autodl-tmp文件夹是数据盘，建议将项目存储在此
 
 点击AutoPanel可以进入服务器监控面板
 ![image](https://github.com/user-attachments/assets/59e6d015-a679-48dd-bcef-e33ae6701d1b)
