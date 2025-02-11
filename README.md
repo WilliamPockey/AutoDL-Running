@@ -2,11 +2,11 @@
 本博客介绍了AutoDL的使用方法和使用时遇到的一些问题
 
 ​
-前言
+##前言
 
 在深度学习项目中，为应对个人电脑算力不足，我们可以选择租用云平台显卡进行模型训练等工作。本文章主要记录云平台AutoDL使用方法与实战项目遇到的问题。
 
-AutoDL平台显卡租用流程
+##AutoDL平台显卡租用流程
 
 在平台登录后，先充值一定数额，然后进入算力市场
 
@@ -45,14 +45,14 @@ AutoDL平台显卡租用流程
 
 
 
-AutoDL解决conda install卡在collecting package meta或solving envieonments
+##AutoDL解决conda install卡在collecting package meta或solving envieonments
 
 使用conda install卡在collecting package meta或solving envieonments是因为conda版本较老，需要更新conda版本，并且建议替换成mamba从而加速包下载
 
 方法：在控制台中输入conda update -n base conda 更新conda到最新版本。然后执行：conda update --all 。然后下载mamba替换conda：conda install mamba -n base -c conda-forge
 之后的conda命令都用mamba进行替换即可。
 
-给AutoDL服务器设置代理
+##给AutoDL服务器设置代理
 
 AutoDL在下载外网的包时非常卡顿。如果需要下载github或者huggingface的资源。可使用官方的学术加速。方法：控制台输入source /etc/network_turbo
 如果需要取消则输入unset http_proxy && unset https_proxy
@@ -109,21 +109,21 @@ sudo apt-get install gettext
 
 原因:隔壁gpu.pro出现envsubst: command not found的解决方法 · Issue #37 · VocabVictor/clash-for-AutoDL
 
-(个人向)运行时报错"undefined symbol: iJIT_NotifyEvent"解决方法
+##(个人向)运行时报错"undefined symbol: iJIT_NotifyEvent"解决方法
 
 原因：mkl包太新，而pytorch是基于老版本mkl写的
 
 方法：mamba install mkl=2024.0
 
-(个人向)解决torch-geometric报错的问题
+##(个人向)解决torch-geometric报错的问题
 
-1.报错"torch_geometric AttributeError: 'builtin_function_or_method' object has no attribute 'default'"
+###1.报错"torch_geometric AttributeError: 'builtin_function_or_method' object has no attribute 'default'"
 
 原因：torch-geometric版本太高
 
 方法：pip install torch-geometric==1.7.2
 
-2.在解决1后，运行时报错RuntimeError: object has no attribute sparse_csc_tensor
+###2.在解决1后，运行时报错RuntimeError: object has no attribute sparse_csc_tensor
 
 原因：虽然torch-geometric版本降低了，但其依赖的torch_cluster、torch_sparse、torch_scatter、torch_spline的版本仍然与pytorch、python以及cuda版本不兼容
 
