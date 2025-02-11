@@ -82,6 +82,7 @@ vim .env(使用vi编辑器修改文件)
 
 
 5.在同个目录下输入apt-get update
+
 apt-get install lsof
 
 6.运行启动脚本
@@ -120,7 +121,9 @@ Secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 7.如果未出现“网络连接测试成功”且你的输出中有envsubst: command not found
 
-需要在控制台输入sudo apt-get update
+需要在控制台输入
+
+sudo apt-get update
 
 sudo apt-get install gettext
 
@@ -155,6 +158,13 @@ sudo apt-get install gettext
 ![image](https://github.com/user-attachments/assets/5ac2bea7-1a59-4d9f-a6d5-0a03bdef7844)
 
 
-下载好后将其上传至当前文件夹，然后在控制台输入pip install torch_spline_conv-1.2.1-cp38-cp38-linux_x86_64.whl，即可重新安装适配当前版本的torch_spline包，其他三个包以此类推。然后运行程序即可。
+下载好后将其上传至当前文件夹，然后在控制台输入
+
+pip install torch_spline_conv-1.2.1-cp38-cp38-linux_x86_64.whl
+pip install torch_sparse-0.6.12-cp38-cp38-linux_x86_64.whl
+pip install torch_scatter-2.0.9-cp38-cp38-linux_x86_64.whl
+pip install torch_cluster-1.5.9-cp38-cp38-linux_x86_64.whl
+
+将其替换成自己的对应的文件名，即可重新安装适配当前版本的依赖包。然后运行程序即可。
 
 ​
