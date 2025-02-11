@@ -161,8 +161,11 @@ sudo apt-get install gettext
 下载好后将其上传至当前文件夹，然后在控制台输入
 
 pip install torch_spline_conv-1.2.1-cp38-cp38-linux_x86_64.whl
+
 pip install torch_sparse-0.6.12-cp38-cp38-linux_x86_64.whl
+
 pip install torch_scatter-2.0.9-cp38-cp38-linux_x86_64.whl
+
 pip install torch_cluster-1.5.9-cp38-cp38-linux_x86_64.whl
 
 将其替换成自己的对应的文件名，即可重新安装适配当前版本的依赖包。然后运行程序即可。
