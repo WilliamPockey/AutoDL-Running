@@ -49,12 +49,16 @@
 
 使用conda install卡在collecting package meta或solving envieonments是因为conda版本较老，需要更新conda版本，并且建议替换成mamba从而加速包下载
 
-方法：在控制台中输入conda update -n base conda 更新conda到最新版本。然后执行：conda update --all 。然后下载mamba替换conda：conda install mamba -n base -c conda-forge
+方法：在控制台中输入conda update -n base conda 更新conda到最新版本。然后执行：conda update --all 。
+
+然后下载mamba替换conda：conda install mamba -n base -c conda-forge
+
 之后的conda命令都用mamba进行替换即可。
 
 ## 给AutoDL服务器设置代理
 
 AutoDL在下载外网的包时非常卡顿。如果需要下载github或者huggingface的资源。可使用官方的学术加速。方法：控制台输入source /etc/network_turbo
+
 如果需要取消则输入unset http_proxy && unset https_proxy
 
 但如果需要下载其他网站资源，请首先自备代理软件Clash。本处参考：https://github.com/VocabVictor/clash-for-AutoDL?tab=readme-ov-file
@@ -62,13 +66,17 @@ AutoDL在下载外网的包时非常卡顿。如果需要下载github或者huggi
 方法：1.在控制台输入git clone https://github.com/VocabVictor/clash-for-AutoDL.git
 
 2.在控制台输入cd clash-for-AutoDL
+
 cp .env.example .env
+
 vim .env(使用vi编辑器修改文件)
 
 3.进入你使用的代理网站，找到订阅链接并复制
 ![image](https://github.com/user-attachments/assets/62d135f1-398c-402e-b08d-2a5943e46ab8)
 
-4.(此处是为不懂vi编辑器的方便操作)点击(或方向键移动至)第二行的CLASH_URL右侧第一个引号，然后黏贴，使你复制的连接位于两个引号之间，然后键盘输入:wq退出即可
+4.(此处是为不懂vi编辑器的方便操作)点击(或方向键移动至)第二行的CLASH_URL右侧第一个引号，然后黏贴。
+
+使你复制的连接位于两个引号之间，然后键盘输入:wq退出即可
 ![image](https://github.com/user-attachments/assets/accb1ab2-6f0a-4077-83a9-01b8fafe75fc)
 
 
@@ -83,26 +91,37 @@ source ./start.sh
 看到下面的输出只要有“网络连接测试成功”即实现了代理
 
 配置文件已存在，无需下载。
+
 配置文件格式正确，无需转换。
 
 正在启动Clash服务...
+
 服务启动成功！                                             [  OK  ]
 
 Clash 控制面板访问地址: http://<your_ip>:6006/ui
+
 Secret: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 已添加代理函数到 .bashrc。
+
 请执行以下命令启动系统代理: proxy_on
+
 若要临时关闭系统代理，请执行: proxy_off
+
 若需要彻底删除，请调用: shutdown_system
 
+
 [√] 系统代理已启用
+
 正在测试网络连接...
+
 网络连接测试成功。
+
 
 7.如果未出现“网络连接测试成功”且你的输出中有envsubst: command not found
 
 需要在控制台输入sudo apt-get update
+
 sudo apt-get install gettext
 
 然后再次输入source ./start.sh即可
